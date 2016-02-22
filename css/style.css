@@ -1,0 +1,24 @@
+/* Interactive Map of Winnipeg SVG using the Raphael JavaScript framework
+* Michael Gifford - Feb. 2016
+* https://github.com/michaelgifford
+*/
+.winnipeg {
+	/*background-image: url(winnipeg-map.png);
+	background-repeat: no-repeat;
+	background-size: 606px 676px; */
+	margin-left: 75px;
+	cursor: crosshair;
+} 
+.name-header {
+	height: 30px;
+	margin-left: 115px;
+	margin-bottom: -10px;
+	margin-top: 65px;
+	font-family: sans-serif;
+	font-size: 1.4em;
+}
+.footer-text {
+	font-family: sans-serif;
+	font-size: 1.1em;
+	margin-left: 75px;
+}
