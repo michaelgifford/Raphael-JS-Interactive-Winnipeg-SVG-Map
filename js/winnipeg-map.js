@@ -136,10 +136,29 @@ for(var i = 0; i < neighbourhoods.length; i++){ // Iterate through naighbourhood
 	neighbourhoods[i].mouseover(function(e) { // Display neighbourhood name and fade on mouseover
 		this.node.style.opacity = 0.6;
 		var displayName = this.data('area-name');
-		document.getElementById('neighbourhood-name').innerHTML = displayName;
+		document.getElementById('neighbourhood-name').innerHTML = "Current Hovered Area: " + displayName;
 	});
 	neighbourhoods[i].mouseout(function(e){ // Unfade neighbourhood on mouseout
 		this.node.style.opacity = 1;
+		document.getElementById('neighbourhood-name').innerHTML = "Current Hovered Area: ";
+	});
+	neighbourhoods[i].mousedown(function(e){
+		var xPosition;
+		var yPosition;
 
-	})
+		if (typeof e !== 'undefined') {
+			xPosition = e.pageX - $('#winnipeg-map').offset().left - 15;
+			yPosition = e.pageY - $('#winnipeg-map').offset().top + 47.5;
+		} else {
+			xPosition = parseInt(neighbourhoods[i].getBBox().x, 10) - 260;
+			yPosition = parseInt(neighbourhoods[i].getBBox().y, 10) - 57;
+		}
+		$('.popup-box').css({'top': yPosition + 'px', 'left': xPosition + 'px' });
+		$('.popup-box').find('.popup-box_title').text(this.data('area-name'));
+	});
+	$('.popup-box').on('click', '.popup-box_close', function(e){
+		$('.popup-box').css({'top' : '-9999px', 'left' : '-9999px'});
+		e.preventDefault();
+		e.stopPropagation();
+	});
 }

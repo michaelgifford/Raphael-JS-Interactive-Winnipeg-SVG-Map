@@ -4,10 +4,15 @@
 	<head>
 		<meta charset = "UTF-8">
 		<title>Interactive Winnipeg Map</title>
-		<link rel="stylesheet" href="./css/style.css"/>	
+		<link rel="stylesheet" href="./css/style.css"/>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<h3 id="neighbourhood-name" class="name-header"></h3>
+		<div class="popup-box">
+			<span class="popup-box_title">Neighbourhood Name</span>
+			<a href="#" class="popup-box_close">X</a>
+		</div>
 		<div id="winnipeg-map" class="winnipeg">
 		</div>
 		<div id="footer" class="footer">
